@@ -1,11 +1,12 @@
-public class Personagem {
+//Classe abstrata que define atributos comuns a todos os personagens
+public abstract class Personagem {
     String nome;
     String classe;
     int nivel;
     int pontosDeVida;
-    double poderBase;
+    Double poderBase;
 
-    public Personagem(String nome, String classe, int nivel, int pontosDeVida, double poderBase) {
+    public Personagem(String nome, String classe, int nivel, int pontosDeVida, Double poderBase) {
         this.nome = nome;
         this.classe = classe;
         this.nivel = nivel;
@@ -20,7 +21,8 @@ public class Personagem {
         System.out.println("Nivel: " + nivel);
         System.out.println("Pontos de Vida: " + pontosDeVida);
         System.out.println("Poder Base: " + poderBase);
-        System.out.println("----------------------------\n");
     }
-}
 
+    // Método abstrato
+    public abstract void usarHabilidadeEspecial();
+}

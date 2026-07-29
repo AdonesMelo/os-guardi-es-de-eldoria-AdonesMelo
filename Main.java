@@ -1,11 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Personagem p1 = new Personagem("Thor", "Guerreiro", 5, 80, 12.5);
-        Personagem p2 = new Personagem("Merlin", "Mago", 4, 90, 10.5);
-        Personagem p3 = new Personagem("Legolas", "Arqueiro", 3, 100, 14.5);
+        // Criando uma instância de Guerreiro e Mago
+        Guerreiro thor = new Guerreiro("Thor", 5, 80, 12.5, 10);
+        Mago merlin = new Mago("Merlin", 4, 90, 10.5, 10.5);
 
-        p1.exibirStatus();
-        p2.exibirStatus();
-        p3.exibirStatus();
-    }
+        // exibindo status
+        thor.exibirStatus();
+        merlin.exibirStatus();
+
+        // Usando habilidade especial
+        thor.usarHabilidadeEspecial();
+        merlin.usarHabilidadeEspecial();
+
+
+        System.out.println("\n=== Polimorfismo ===");
+        // Criando uma lista de personagens
+        List<Personagem> herois = new ArrayList<>();
+        herois.add(thor);
+        herois.add(merlin);
+
+        // Criando outros personagens
+        herois.add(new Guerreiro("Loki", 5, 90, 14.5, 9.5));
+        herois.add(new Mago("Dr. Strange", 4, 95, 13.5, 9.8));
+
+        // Exibindo status de todos os personagens
+        for (Personagem p : herois) {
+            p.exibirStatus();
+            p.usarHabilidadeEspecial();
+            System.out.println("----------------------------\n");
+        }
+    }  
 }
